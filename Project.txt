@@ -1,0 +1,51 @@
+Projeto de desenvolvimento para o curso de Desenvolvimento de Sistema
+Matéria: Internet Of Things
+Instituição: SENAI
+
+Projeto Dispositivo de Segurança Maquinas de Costura 
+
+Versão: 2.0
+
+Integrantes:
+
+
+Nome: Ana Luiza Teixeira Dourado
+Responsável pela pesquisa sobre desenvolvimento, justificativa do projeto, desafios e soluções.
+
+Nome: Fabio Luís Batista Santos
+Responsável pela escrita do Artigo seguindo as normas ABNT, pesquisa sobre desenvolvimento, construção do projeto, commits no GITHUB e procura das peças que serão utilizadas.
+
+Nome: Igor Victor Da Silva
+Responsável pela pesquisa da Problemática, tecnologia e ferramentas que serão utilizadas e atualizações futuras. 
+
+Nome: Jaqueline Batista Vieira
+Responsável pelos teste e resultados, pesquisa e desenvolvimento do protótipo, hipótese.
+
+Visão geral:
+
+O protótipo está sendo desenvolvido para prevenir os acidentes que ocorrem com costureiras(os).
+
+Trava de segurança para prevenir acidentes com agulhas em maquinas de costura.
+
+Ate o momento o projeto está sendo desenvolvido seguindo apenas estruturas de maquinas manuais (Mais antigas).
+
+Visão Técnica:
+
+Principais componentes (Reais + representação tinkercad + características):
+
+	1.Sensor de proximidade capacitiva (Tinkercad: representado pelo sensor ultrassonico)
+		->Nome Modelo: Sensor de Proximidade Capacitivo NPN LJC18A3-H-Z/AX;
+		->Frequência de resposta: 100hz;
+		->Detecção de objetos metálicos e não metálicos;
+		->Distancia de detecção de até 10mm;
+		->Tipo NPN;
+		->Peso 85g;
+
+INFO: https://encurtador.com.br/fdOZi 
+
+
+Ideias futuras:
+
+1. Implementar e aprimorar estes sistema para maquinais mais atuais.
+
+2. Utilizar da mesma ideia de maquinas de costura para maquinas de corte.

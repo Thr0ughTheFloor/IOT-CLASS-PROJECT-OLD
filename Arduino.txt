@@ -1,0 +1,94 @@
+//Codigo projeto 2.0
+//Potenciometro irá servir como se fosse o pé da maquina de costura
+//motor irá representar a agulha
+//interruptor é o sistema de segurança liga/desliga
+#define poten A0
+#define senPir 6
+int interruptor = 2;
+int led = 3;
+int estadointe = 0;
+int buzzer = 4;
+int i =0;
+int cont = 0;
+int pino_motor = 5;
+int leituraSen;
+int velocidadeMotor;
+int valPoten;
+
+
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(interruptor, INPUT);
+  pinMode(buzzer, OUTPUT);
+  digitalWrite(led, LOW);
+  pinMode(senPir, INPUT);
+  Serial.begin(9600);
+
+}
+
+void loop()
+{
+
+
+  //sistema de segurança indicação de ligado e liberando o acesso
+  //para começar o processo de costurar
+  estadointe = digitalRead(interruptor);
+  if (estadointe==HIGH) {
+    digitalWrite(led, HIGH);
+    delay(100);
+    acessocostura();
+  }else{
+    digitalWrite(led, LOW);
+  }
+
+}
+
+void acessocostura(){
+  //indicando que o sistema de segurança iniciou
+  while(i!= 3){
+  tone(buzzer,500);
+    delay(200);
+    noTone(buzzer);
+    delay(200);
+    tone(buzzer,3000);
+    delay(200);
+    noTone(buzzer);
+    delay(200);
+  i++;
+  }
+
+  //leitura do sensor Pir
+  leituraSen = digitalRead(senPir);
+
+  //condicional de alerta se tem algo na ponta da agulha
+  if(leituraSen == HIGH && velocidadeMotor == 0){
+    i=0;
+    while(i!= 3){
+ 	tone(buzzer,500);
+    delay(200);
+    noTone(buzzer);
+    delay(200);
+    tone(buzzer,3000);
+    delay(200);
+    noTone(buzzer);
+    delay(200);
+  	i++;
+  }
+
+	}
+  //sistema de segurança
+  else if(leituraSen == HIGH && velocidadeMotor > 0){
+
+      velocidadeMotor=0;
+
+  }else{
+   valPoten = analogRead(poten);
+   velocidadeMotor = map(valPoten, 0, 1023, 0, 255);
+  }
+
+  analogWrite(pino_motor, velocidadeMotor);
+  delay(200);
+
+}
